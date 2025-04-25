@@ -18,6 +18,9 @@ ensure
 fastapi
 uvicorn
 Jinja2
+evaluate
+accelerate
+openvino
 
 -e .
 
