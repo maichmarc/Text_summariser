@@ -20,7 +20,7 @@ uvicorn
 Jinja2
 evaluate
 accelerate
-openvino
+# openvino
 
 -e .
 
