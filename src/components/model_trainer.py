@@ -32,6 +32,7 @@ class ModelTrainer:
             eval_strategy=self.config.eval_strategy, 
             eval_steps=self.config.eval_steps, 
             save_steps=1e6,
+            run_name="pegasus-textsummarizer-run1",
             gradient_accumulation_steps=self.config.gradient_accumulation_steps
             )
 
