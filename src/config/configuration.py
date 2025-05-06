@@ -1,6 +1,6 @@
 from src.constants import *
 from src.utils.common import read_yaml, create_directories
-from src.entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig, ModelEvaluationConfig
+from src.entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig, ModelEvaluationConfig, ModelUploaderConfig
 
 
 class ConfigurationManager:
@@ -96,3 +96,17 @@ class ConfigurationManager:
         )
 
         return model_evaluation_config
+    
+    def get_model_uploader_config(self) -> ModelUploaderConfig:
+        config = self.config.model_uploader
+        # params = self.params.TrainingArguments
+
+        # create_directories([config.root_dir])
+
+        model_uploader_config = ModelUploaderConfig(
+            model_path = config.model_path,
+            tokenizer_path = config.tokenizer_path
+            
+        )
+
+        return model_uploader_config
