@@ -4,6 +4,8 @@ from huggingface_hub import HfApi, HfFolder
 from transformers import TrainingArguments, Trainer
 from datasets import load_dataset, load_from_disk
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import PegasusTokenizerFast
+from transformers import PegasusForConditionalGeneration
 from src.config.configuration import ModelUploaderConfig
 
 class ModelUploader:
@@ -12,8 +14,10 @@ class ModelUploader:
         
     def upload_model(self):
         device = "cuda" if torch.cuda.is_available() else "cpu"
-        tokenizer = AutoTokenizer.from_pretrained(self.config.tokenizer_path)
-        model_pegasus = AutoModelForSeq2SeqLM.from_pretrained(self.config.model_path).to(device)
+        # tokenizer = AutoTokenizer.from_pretrained(self.config.tokenizer_path)
+        # model_pegasus = AutoModelForSeq2SeqLM.from_pretrained(self.config.model_path).to(device)
+        tokenizer = PegasusTokenizerFast.from_pretrained(self.config.tokenizer_path)
+        model_pegasus = PegasusForConditionalGeneration.from_pretrained(self.config.model_path)
 
         api = HfApi()
 
