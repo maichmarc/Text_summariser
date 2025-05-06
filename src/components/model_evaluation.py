@@ -57,8 +57,10 @@ class ModelEvaluation:
 
     def evaluate(self):
         device = "cuda" if torch.cuda.is_available() else "cpu"
-        tokenizer = AutoTokenizer.from_pretrained(self.config.tokenizer_path, local_files_only=True)
-        model_pegasus = AutoModelForSeq2SeqLM.from_pretrained(self.config.model_path).to(device)
+        # tokenizer = AutoTokenizer.from_pretrained(self.config.tokenizer_path, local_files_only=True)
+        tokenizer = AutoTokenizer.from_pretrained("/kaggle/working/Text_summariser/artifacts/model_trainer/tokenizer",local_files_only=True)
+        # model_pegasus = AutoModelForSeq2SeqLM.from_pretrained(self.config.model_path).to(device)
+        model_pegasus = AutoModelForSeq2SeqLM.from_pretrained("/kaggle/working/Text_summariser/artifacts/model_trainer/pegasus-samsum-model",local_files_only=True)
 
         # Loading Data
 
