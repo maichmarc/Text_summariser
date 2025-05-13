@@ -4,7 +4,7 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 import torch
 from src.pipeline.prediction import PredictionPipeline
 
-@st.cache(allow_output_mutation=True)
+@st.cache_data(allow_output_mutation=True)
 def get_model():
     tokenizer = AutoTokenizer.from_pretrained('maichmarc/textS')
     model = AutoModelForSeq2SeqLM.from_pretrained("maichmarc/textS")
