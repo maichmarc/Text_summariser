@@ -10,7 +10,9 @@ def get_model():
     model = AutoModelForSeq2SeqLM.from_pretrained("maichmarc/textS")
     return tokenizer,model
 
-
+st.title('Text Summariser')
+st.write("This is Text Summarisation model that uses the google/pegasus-cnn_dailymail model fine-tuned using the Samsung/samsum dataset" \
+"using Huuging Face's transformers. Evaluation was achieved using ROUGE metrics.")
 tokenizer,model = get_model()
 
 user_input = st.text_area('Enter Text to Summarize')
