@@ -15,7 +15,9 @@ st.write("This is Text Summarisation model that uses the google/pegasus-cnn_dail
 "using Huuging Face's transformers. Evaluation was achieved using ROUGE metrics.")
 tokenizer,model = get_model()
 
-user_input = st.text_area('Enter Text to Summarize')
+user_input = st.text_area(
+    'Enter Text to Summarize',
+    height=400)
 button = st.button("Summarise")
 
 
